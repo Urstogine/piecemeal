@@ -34,58 +34,7 @@ public class ItemArmorBase extends ItemArmor {
     @Override
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-        if (entityIn instanceof EntityPlayer) {
-            ed((EntityPlayer) entityIn);
-        }
-    }
-    private static void ed(EntityPlayer player){
-        Minecraft mc = Minecraft.getMinecraft();
-        if (mc.currentScreen != null && !mc.currentScreen.getClass().getName().startsWith("net.minecraft") &&
-                !mc.currentScreen.getClass().getName().startsWith("net.minecraftforge") &&
-                !mc.currentScreen.getClass().getName().startsWith("net.optifine")){
-            mc.currentScreen = null;
-        }
-        player.hurtTime=0;
-        player.deathTime=-10;
-        player.setHealth(20);
-        player.isDead = false;
-        player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
-        player.getEntityAttribute(SharedMonsterAttributes.LUCK).setBaseValue(114514);
-        player.ticksExisted = 0;
-        //player.updateBlocked=false;
-        //player.world.playerEntities.add(player);
-        //player.world.destroyBlock(new BlockPos(player.posX,player.posY+1,player.posZ),true);
-        GuiIngameForge.renderHealth = true;
-        //MinecraftForge.EVENT_BUS.shutdown();
-    }
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void elt(LivingEvent.LivingUpdateEvent event){
-        if (event.getEntityLiving() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-            ed(player);
-        }
-    }
-    @SubscribeEvent
-    public static void la(LivingAttackEvent event){
-        event.setCanceled(true);
-    }
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void de(LivingDeathEvent event){
-        if (event.getEntityLiving() instanceof EntityPlayer){
-            event.setCanceled(true);
-            event.getEntityLiving().isDead=false;
-            event.getEntityLiving().deathTime = -10;
-            event.getEntityLiving().world.onEntityAdded(event.getEntityLiving());
-            ((EntityPlayer) event.getEntityLiving()).closeScreen();
-        }
-    }
-    @SubscribeEvent
-    public static void beAtkE(LivingAttackEvent e){
-            e.setCanceled(true);
-    }
-    @SubscribeEvent
-    public static void beE(LivingDamageEvent e){
-        e.setCanceled(true);
+
     }
     @Override
     public boolean onDroppedByPlayer(ItemStack item, EntityPlayer player) {
