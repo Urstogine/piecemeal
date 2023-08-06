@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "piecemeal",
+    "name": "Piecemeal",
+    "description": "a piecemeal mod",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["Urstogine"],
+    "credits": "None",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

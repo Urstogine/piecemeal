@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.urstogine.piecemeal.mixins",
+  "mixins": [
+    "MixinBlockPortal",
+    "MixinTeleporter",
+    "MixinEntityPlayer",
+    "MixinEntity"
+  ],
+  "client": [
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "mixins.piecemeal.refmap.json"
+}
