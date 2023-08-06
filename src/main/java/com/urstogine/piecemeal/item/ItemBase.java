@@ -18,11 +18,7 @@ public class ItemBase extends Item implements IHasModel {
     }
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand){
-        player.setHealth(0);
-        player.isDead=true;
-        player.world.removeEntity(player);
-        player.world.loadedEntityList.remove(player);
-        player.deathTime=255;
+        
         return super.onItemRightClick(world, player, hand);
     }
     @Override
